@@ -14,11 +14,15 @@ let cuadradosDeNumeros(b) : int  =
 let resultado =  potencia(sumatoria(limite),2) - cuadradosDeNumeros(numeros)
 printfn "Ejercicio 1: %d" resultado
 
-let isograma = "Holaa"
+printfn "Ingresa el texto:\n"
+let isograma = System.Console.ReadLine()
 let mutable inputMap:Map<char,int> = Map.empty
+let mutable check = false
 for i in isograma do
-    if inputMap.ContainsKey(i) then
-        inputMap[i] = inputMap[i] + 1
-    else inputMap <- inputMap.Add(i,1)
-for i in inputMap do
-    printfn "%c %d" i.Key i.Value
+    if (inputMap.ContainsKey(i)) then
+        check <- true
+    else
+        inputMap <- inputMap.Add(i,1)
+printfn "El texto %s" isograma
+if(check) then printfn "No es un isograma\n"
+else printfn "Es un isograma\n"
