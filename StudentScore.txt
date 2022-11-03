@@ -1,0 +1,5 @@
+Student ID Score Score2 Score3
+Daniel 01 10 11 12
+Adriana 02 10 12 12
+Sarai 03 20 12 12
+Andrea 04 30 12 12
