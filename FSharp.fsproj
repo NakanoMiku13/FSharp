@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="RecordTypes.fsx" />
+    <Compile Include="Ex1Currying.fsx" />
   </ItemGroup>
 
 </Project>
