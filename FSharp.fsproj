@@ -4,10 +4,6 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Float.fsx" />
-    <Compile Include="TestResult.fsx" />
-    <Compile Include="Student.fsx" />
-    <Compile Include="Summary.fsx" />
-    <Compile Include="DiscriminatedUnionsEx1.fsx" />
+    <Compile Include="PatternMatching.fsx" />
   </ItemGroup>
 </Project>
