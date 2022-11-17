@@ -10,6 +10,6 @@ module Summaries =
         |> Array.skip 1
         |> Array.map Student.fromString
         //Here we use a lambda expresion to shortcut the process, instead of using a function
-        |> Array.sortBy (fun student -> student.Name)
+        |> Array.sortBy (fun student -> student.Surname)
         //|> Array.sortByDescending (fun student -> student.MeanScore)
         |> Array.iter Student.printSumary

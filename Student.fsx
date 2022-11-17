@@ -3,7 +3,8 @@ open FloatFunctions
 open StudentScores
 type Student =
     {
-        Name : string
+        Surname : string
+        GivenName : string
         Id : string
         MeanScore : float
         MinScore : float
@@ -13,9 +14,19 @@ type Student =
 //    s |> Option.defaultValue 50.0
 //After that we can create a module, that is basically where we can create functions to the type data or record types
 module Student =
+    let namePart (s : string) =
+        let elements = s.Split(',')
+        match elements with
+        | [|surname;givenName|] ->
+            {| Surname = surname.Trim()
+               GivenName = givenName.Trim() |}
+        | [|surname|] ->
+            {|  Surname = surname.Trim() 
+                GivenName = "(None)"|}
+        | _ -> raise(System.FormatException(sprintf "Invalid name format"))
     let fromString( s : string ) =
         let elements = s.Split('\t')
-        let name = elements[0]
+        let name = elements[0] |> namePart
         let id = elements[1]
         //If we try to use the convertion with map, we have the problem that we are using option(float), and not float at all
         //So, when we try to make the average, it throws an error 'cause we can operate + on option(float)
@@ -29,11 +40,12 @@ module Student =
         let lowestScore = score |> Array.min
         let highestScore = score |> Array.max
         {
-            Name = name
+            Surname = name.Surname
+            GivenName = name.GivenName
             Id = id
             MeanScore = meanScore2
             MinScore = lowestScore
             MaxScore = highestScore
         }
     let printSumary (student : Student) =
-        printfn "%s\t%s\t%0.1f\t%0.1f\t%0.1f" student.Name student.Id student.MeanScore student.MinScore student.MaxScore
+        printfn "%s\t%s\t%s\t%0.1f\t%0.1f\t%0.1f" student.Surname student.GivenName student.Id student.MeanScore student.MinScore student.MaxScore
