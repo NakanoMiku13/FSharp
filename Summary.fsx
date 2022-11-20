@@ -1,5 +1,6 @@
 namespace Sum
 module Summaries =
+    open System
     open System.IO
     open Students
     let summarize filePath =

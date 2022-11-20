@@ -8,6 +8,6 @@
     <Compile Include="Float.fsx" />
     <Compile Include="Student.fsx" />
     <Compile Include="Summary.fsx" />
-    <Compile Include="PatternMatching.fsx" />
+    <Compile Include="HandlingExceptionEx2.fsx" />
   </ItemGroup>
 </Project>

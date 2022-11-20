@@ -21,9 +21,13 @@ module Student =
             {| Surname = surname.Trim()
                GivenName = givenName.Trim() |}
         | [|surname|] ->
-            {|  Surname = surname.Trim() 
+            {|  Surname = surname.Trim()
                 GivenName = "(None)"|}
         | _ -> raise(System.FormatException(sprintf "Invalid name format"))
+    let checkScore(a : float[]) =
+        match a with
+        | data -> {|Mean = Array.average data; Lowest = Array.min data; Highest = Array.max data|}
+        | _ -> raise(sprintf(""))
     let fromString( s : string ) =
         let elements = s.Split('\t')
         let name = elements[0] |> namePart
